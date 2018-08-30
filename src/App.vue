@@ -22,11 +22,11 @@ export default {
   data() {
     return {
       navlist: [
-        { name: "导航组件1", path: "/page1" },
-        { name: "导航组件2", path: "/page2" },
-        { name: "导航组件3", path: "/page3" },
-        { name: "导航组件4", path: "/page4" },
-        { name: "导航组件5", path: "/page5" }
+        { name: "查网站数据", path: "/page1" },
+        { name: "POST插入数据测试", path: "/page2" },
+        { name: "POST插入数据核实", path: "/page3" },
+        { name: "查账本", path: "/page4" },
+        { name: "记账", path: "/page5" }
       ],
       munutoggle: true
     };
@@ -105,7 +105,9 @@ export default {
     }
     .asideShowFromHide {
       transform: translateX(0);
-      border-bottom: solid 1px #e6e6e6
+      border-bottom: solid 1px #e6e6e6;
+      z-index: 1;
+      opacity: 0.9;
     }
   }
 }
