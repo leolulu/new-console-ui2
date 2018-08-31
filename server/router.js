@@ -6,7 +6,9 @@ var bodyParser = require('body-parser')
 
 router.use(cors())
 router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: false }));
+router.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 var pool = mysql.createPool({
   connectionLimit: 10,
@@ -66,17 +68,19 @@ router.get('/get-account', function (req, res) {
 })
 
 router.post('/insert-account', function (req, res) {
-  pool.query("insert into my_account values(null,?,?,?,?)", [req.body.date, req.body.bigc, req.body.smallc, req.body.money], function (error, results, fields) {
-    if (error) {
-      console.log(error)
-      res.send(error)
-      res.end()
-      return
-    }
-    res.send('插入成功')
-    console.log(results)
-    res.end(JSON.stringify(results))
-  })
+  pool.query("insert into my_account values(null,?,?,?,?)",
+    [req.body.date, req.body.bigc, req.body.smallc, req.body.money],
+    function (error, results, fields) {
+      if (error) {
+        console.log(error)
+        res.send(error)
+        res.end()
+        return
+      }
+      res.send('插入成功')
+      console.log(results)
+      res.end(JSON.stringify(results))
+    })
 })
 
 module.exports = router;

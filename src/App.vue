@@ -9,7 +9,9 @@
         <el-menu-item :index='index.toString()' v-for='(item,index) in navlist' :key='index' :route='item.path'>{{item.name}}</el-menu-item>
       </el-menu>
       <div class="main">
-        <router-view></router-view>
+        <keep-alive>
+          <router-view v-if='this.$route.meta.keepAlive'></router-view>
+        </keep-alive>
       </div>
     </div>
 
